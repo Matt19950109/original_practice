@@ -1,0 +1,16 @@
+<h2>カテゴリの追加</h2>
+ <%= form_with model: @income, local: true do |f| %>
+    <div class='form_input_number'>
+      <%= f.label :amount_price %>
+      <%= f.number_field :amount_price %>
+    </div>
+    <div class='form_input_account'>
+      <%= f.label :bank_account %>
+      <%= f.text_field :bank_account %>
+    </div>
+    <div class="form_action">
+      <%= f.submit "登録する", class: "btn btn-primary" %>
+    </div>
+ <% end %>
+
+<%= link_to 'トップページに戻る', root_path %>
