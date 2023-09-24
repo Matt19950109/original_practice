@@ -9,6 +9,7 @@ class SettlementsController < ApplicationController
 
   def create
     @settlement = Settlement.new(settlement_params)
+    binding.pry
     if @settlement.save
       redirect_to root_path
     else
