@@ -20,6 +20,6 @@ class SettlementsController < ApplicationController
   private
 
   def settlement_params
-    params.require(:settlement).permit(:payment, :bank_account_id)
+    params.require(:settlement).permit(:payment, :income_id)
   end
 end
