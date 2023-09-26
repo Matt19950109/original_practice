@@ -1,5 +1,12 @@
-<%= month_calendar spendings: @spending do |date, spendings| %>
+<%= month_calendar events: @spendings do |date, spendings| %>
   <%= date.day %>
-<% end %>
 
-<%= link_to 'イベント追加', new_spending_path %>
+
+  <% spendings.each do |spending| %>
+    <div>
+      <%= spending.price %>
+    </div>
+  <% end %>
+
+<% end %>
+<%= link_to '支出追加', new_spending_path %>
