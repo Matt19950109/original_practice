@@ -9,7 +9,6 @@
             <%= f.label :income_id %>
             <%= f.collection_select :income_id, Income.all, :id, :bank_account, { prompt: '選択してください' }, class: 'form-control' %>
         </div>
-        <%#= f.hidden_field :income_id, value:%>
         <div class="form_action row">
             <%= f.submit "投稿する", class: "btn btn-primary"%>
         </div>

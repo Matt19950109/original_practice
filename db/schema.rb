@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_18_165903) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_26_094841) do
   create_table "incomes", charset: "utf8mb4", force: :cascade do |t|
     t.integer "amount_price"
     t.string "bank_account"
@@ -26,5 +26,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_165903) do
     t.index ["income_id"], name: "index_settlements_on_income_id"
   end
 
+  create_table "spendings", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "price", null: false
+    t.string "item_name", null: false
+    t.bigint "settlement_id", null: false
+    t.datetime "start_time", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["settlement_id"], name: "index_spendings_on_settlement_id"
+  end
+
   add_foreign_key "settlements", "incomes"
+  add_foreign_key "spendings", "settlements"
 end
