@@ -72,3 +72,4 @@ group :test do
 end
 
 gem 'pry-rails'
+gem "simple_calendar", "~> 2.0"
