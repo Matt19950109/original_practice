@@ -1,3 +1,5 @@
 <%= month_calendar spendings: @spending do |date, spendings| %>
   <%= date.day %>
 <% end %>
+
+<%= link_to 'イベント追加', new_spending_path %>
