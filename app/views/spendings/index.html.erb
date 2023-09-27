@@ -1,3 +1,4 @@
+<%=@total.sum(:price)[Date.today.month]%>
 <%= month_calendar events: @spendings do |date, spendings| %>
   <%= date.day %>
 

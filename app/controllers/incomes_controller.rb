@@ -28,8 +28,8 @@ class IncomesController < ApplicationController
 
   def update
     income = Income.find(params[:id])
-    income.update(spending_params)
-    redirect_to spending_path
+    income.update(income_params)
+    redirect_to income_path
   end
 
   def show

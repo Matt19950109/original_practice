@@ -5,8 +5,7 @@
     <tbody>
       <% @incomes.each do |income| %>
         <tr>
-          <td><%= income.bank_account %></td>
-          <td><%= income.created_at %>作成</td>
+          <td><%= link_to income.bank_account, income_path(income.id) %></td>
         </tr>
       <% end %>
     </tbody>

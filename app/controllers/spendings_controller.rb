@@ -1,6 +1,7 @@
 class SpendingsController < ApplicationController
   def index
     @spendings = Spending.all
+    @total = Spending.group("MONTH(start_time)")
   end
 
   def new
