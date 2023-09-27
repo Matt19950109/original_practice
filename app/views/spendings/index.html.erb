@@ -1,12 +1,16 @@
 <%= month_calendar events: @spendings do |date, spendings| %>
   <%= date.day %>
 
-
+  <% array = [] %>
   <% spendings.each do |spending| %>
     <div>
       <%= spending.price %>
     </div>
+    <div>
+    <% array << spending.price %>
+    </div>
   <% end %>
+  <%= array.sum %>
 
 <% end %>
 <%= link_to '支出追加', new_spending_path %>
