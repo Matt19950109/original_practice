@@ -10,7 +10,9 @@
     <% array << spending.price %>
     </div>
   <% end %>
+  <div>
   <%= array.sum %>
+  </div>
 
 <% end %>
 <%= link_to '支出追加', new_spending_path %>
