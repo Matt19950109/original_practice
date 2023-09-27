@@ -1,5 +1,10 @@
 支出編集
 
+<%= @spending.price%>
+<%= @spending.item_name%>
+<%= @spending.settlement.payment%>
+<%= @spending.start_time%>
+
 <div>
 <%= link_to '編集', edit_spending_path %>
 </div>
