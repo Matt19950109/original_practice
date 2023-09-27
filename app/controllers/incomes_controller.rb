@@ -16,6 +16,26 @@ class IncomesController < ApplicationController
     end
   end
 
+  def destroy
+    income = Income.find(params[:id])
+    income.destroy
+    redirect_to spendings_path
+  end
+
+  def edit
+    @income = Income.find(params[:id])
+  end
+
+  def update
+    income = Income.find(params[:id])
+    income.update(spending_params)
+    redirect_to spending_path
+  end
+
+  def show
+    @income = Income.find(params[:id])
+  end
+
   private
   def income_params
     params.require(:income).permit(:amount_price, :bank_account)
