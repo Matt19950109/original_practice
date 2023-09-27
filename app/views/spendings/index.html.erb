@@ -4,7 +4,7 @@
   <% array = [] %>
   <% spendings.each do |spending| %>
     <div>
-      <%= spending.price %>
+      <%= link_to spending.price, spending_path(spending.id) %>
     </div>
     <div>
     <% array << spending.price %>
