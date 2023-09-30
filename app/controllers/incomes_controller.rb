@@ -1,6 +1,12 @@
 class IncomesController < ApplicationController
   def index
     @incomes = Income.all
+    @spendings = Spending.all
+    @total = Spending.group("MONTH(start_time)")
+    #@pay = Spending.group("MONTH(start_time)").joins(:settlement).group("settlements.payment").sum(:price)
+    #@pay = Spending.group("MONTH(start_time)").joins(:settlement).group("settlements.payment").having('month_start_time = 9').sum(:price)
+    @this_month = Spending.where(start_time: [Date.today.all_month]).joins(:settlement).group("settlements.payment").sum(:price)
+    @spending = Spending.where(start_time: [Date.today.all_month]).joins(settlement: :income).group("bank_account").sum(:price)
   end
 
   def new

@@ -24,3 +24,29 @@
   </div>
 
 <%= link_to 'トップページに戻る', root_path %>
+
+<%=@total.sum(:price)[Date.today.month]%>
+<%= month_calendar events: @spendings do |date, spendings| %>
+  <%= date.day %>
+
+  <% array = [] %>
+  <% spendings.each do |spending| %>
+    <div>
+      <%= link_to spending.price, spending_path(spending.id) %>
+    </div>
+    <div>
+    <% array << spending.price %>
+    </div>
+  <% end %>
+  <div>
+  <%= array.sum %>
+  </div>
+
+<% end %>
+<%= link_to '支出追加', new_spending_path %>
+
+<ul>
+  <% @this_month.each do |key, value| %>
+    <li><%= "#{key}: #{value}" %></li>
+  <% end %>
+</ul>
