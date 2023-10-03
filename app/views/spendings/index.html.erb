@@ -5,14 +5,15 @@
   <% array = [] %>
   <% spendings.each do |spending| %>
     <div>
-      <%= link_to spending.price, spending_path(spending.id) %>
+      <%= spending.item_name %>
+      <%= link_to spending.price, spending_path(spending.id) %>円
     </div>
     <div>
     <% array << spending.price %>
     </div>
   <% end %>
   <div>
-  <%= array.sum %>
+  合計：<%= array.sum %>円
   </div>
 
 <% end %>
