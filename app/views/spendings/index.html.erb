@@ -3,20 +3,22 @@
   <%= date.day %>
 
   <% array = [] %>
-  <% spendings.each do |spending| %>
-    <div>
-      <%= spending.item_name %>
-      <%= link_to spending.price, spending_path(spending.id) %>円
+  <% if spendings.any? %>
+    <% spendings.each do |spending| %>
+      <div>
+        <%= link_to spending.price, spending_path(spending.id) %>円
+      </div>
+      <div>
+      <% array << spending.price %>
+      </div>
+    <% end %>
+    <div class="fw-bold text-success align-text-bottom">
+    合計：<%= array.sum %>円 
     </div>
-    <div>
-    <% array << spending.price %>
-    </div>
+    <% else %>
   <% end %>
-  <div>
-  合計：<%= array.sum %>円
-  </div>
-
 <% end %>
+</div>
 <%= link_to '支出追加', new_spending_path %>
 
 <ul>
