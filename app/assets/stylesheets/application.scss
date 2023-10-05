@@ -3,10 +3,8 @@
 
 .simple-calendar {
   .day {
-    background: #fff9ee;
   }
   .wday-0 {
-    background: #ffeaea;
     color: #ff505c;
   }
   .wday-1 {}
@@ -15,7 +13,7 @@
   .wday-4 {}
   .wday-5 {}
   .wday-6 {
-    background: #d4ebff;
+    background-color: aqua;
     color: #5984dc;
   }
   .today {}
@@ -23,8 +21,12 @@
   .future {}
   .start-date {}
   .prev-month {}
-  .next-month {}
-  .current-month {}
+  .next-month {
+    background-color: antiquewhite;
+  }
+  .current-month {
+    border: solid #0bd;
+  }
   .has-events {}
 }
 /* ホバーした際の背景色 tableタグにcalender_tableクラスを追記しています*/
