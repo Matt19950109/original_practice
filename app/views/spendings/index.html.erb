@@ -21,8 +21,10 @@
 </div>
 <%= link_to '支出追加', new_spending_path %>
 
-<ul>
+<div class="col-md-6 col-xl-4">
+<ul class="list-group list-group">
   <% @this_month.each do |key, value| %>
-    <li><%= "#{key}: #{value}" %></li>
+    <li class="list-group-item"><%= "#{key}: #{value}" %></li>
   <% end %>
 </ul>
+</div>
