@@ -20,9 +20,11 @@
   .past {}
   .future {}
   .start-date {}
-  .prev-month {}
+  .prev-month {
+    background-color: #d3d3d3;
+  }
   .next-month {
-    background-color: antiquewhite;
+    background-color: #d3d3d3;
   }
   .current-month {
     border: solid #0bd;
