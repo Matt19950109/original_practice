@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      income:
+        amount_price: 設定金額
+        bank_account: 銀行名
