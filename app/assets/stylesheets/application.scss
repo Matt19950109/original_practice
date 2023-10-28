@@ -1,0 +1,37 @@
+@import "bootstrap";
+@import "simple_calendar";
+
+.simple-calendar {
+  .day {
+  }
+  .wday-0 {
+    color: #ff505c;
+  }
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {
+    background-color: aqua;
+    color: #5984dc;
+  }
+  .today {}
+  .past {}
+  .future {}
+  .start-date {}
+  .prev-month {
+    background-color: #d3d3d3;
+  }
+  .next-month {
+    background-color: #d3d3d3;
+  }
+  .current-month {
+    border: solid #0bd;
+  }
+  .has-events {}
+}
+/* ホバーした際の背景色 tableタグにcalender_tableクラスを追記しています*/
+.table tr td:hover {
+  background-color: #FFFF8c;
+}

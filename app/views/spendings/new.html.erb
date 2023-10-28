@@ -1,7 +1,7 @@
 <h2>支出投稿</h2>
 
     <%= form_with model: @spending, url:spendings_path, local: true do |f| %>
-        <div class="form-input">
+        <div class="form-floating">
             <%= f.label :price, '支出額' %>
             <%= f.number_field :price, class: "form-control" %>
         </div>
@@ -11,11 +11,11 @@
         </div>
         <div class="form_input">
             <%= f.label :settlement_id %>
-            <%= f.collection_select :settlement_id, Settlement.all, :id, :payment, { prompt: '選択してください' }, class: 'form-control' %>
+            <%= f.collection_select :settlement_id, Settlement.all, :id, :payment, { prompt: '選択してください' }, class: 'form-select' %>
         </div>
         <div class="time">
             <%= f.label :start_time, '購入日' %>
-            <%= f.datetime_select :start_time %>
+            <%= f.date_field :start_time %>
         </div>
 
         <div class="form_action row">

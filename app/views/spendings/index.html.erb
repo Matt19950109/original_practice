@@ -3,24 +3,64 @@
   <%= date.day %>
 
   <% array = [] %>
-  <% spendings.each do |spending| %>
-    <div>
-      <%= spending.item_name %>
-      <%= link_to spending.price, spending_path(spending.id) %>円
+  <% if spendings.any? %>
+    <% spendings.each do |spending| %>
+      <div>
+        <%= link_to spending.price, spending_path(spending.id) %>円
+      </div>
+      <div>
+      <% array << spending.price %>
+      </div>
+    <% end %>
+    <div class="fw-bold text-success align-text-bottom">
+    合計：<%= array.sum %>円 
     </div>
-    <div>
-    <% array << spending.price %>
-    </div>
+    <% else %>
   <% end %>
-  <div>
-  合計：<%= array.sum %>円
-  </div>
-
 <% end %>
+</div>
+
+  <%#支出管理のカレンダーを反映%>
+  <%= month_calendar events: @spendings do |date, spendings| %>
+    <%= date.day %>
+
+    <% array = [] %>
+    <% count = []%>
+    <%#支出データがある場合%>
+    <% if spendings.any?%>
+          <% spendings.each do |spending| %>
+          <% count << spending %>
+          <% end %>
+      <%#月ごとの支出をドロップダウンで表示%>
+      <div class="dropdown">
+        <button class="btn btn-warning btn-sm dropdown-toggle fw-bold" data-bs-toggle="dropdown"><%=count.length%></button>
+        <ul class="dropdown-menu">
+          <% spendings.each do |spending| %>
+          <li><%= link_to spending.price, spending_path(spending.id), class:"dropdown-item list-group-item-light text-decoration-none "%></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <%#日ごとの合計金額を表示%>
+      <% spendings.each do |spending| %>
+      <% array << spending.price %>
+      <% end %>
+        <div class="text-danger fw-bold">
+        <%= array.sum %>円
+        </div>
+    <% else %>
+    <%#支出データがない場合は空欄に設定%>
+    <% end %>
+  <% end %>
+<div class="fw-light">日付ごとの支出件数が表示されます</div>
+<div class="fw-light">※ドロップダウンに表示される支出をクリックすると各支出の詳細が確認できます</div>
+
 <%= link_to '支出追加', new_spending_path %>
 
-<ul>
+<div class="col-md-6 col-xl-4">
+<ul class="list-group list-group">
   <% @this_month.each do |key, value| %>
-    <li><%= "#{key}: #{value}" %></li>
+    <li class="list-group-item"><%= "#{key}: #{value}" %></li>
   <% end %>
 </ul>
+</div>

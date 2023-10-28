@@ -73,3 +73,6 @@ end
 
 gem 'pry-rails'
 gem "simple_calendar", "~> 2.0"
+gem 'bootstrap', '~> 5.2.3'
+gem 'jquery-rails'
+gem 'mini_racer'
